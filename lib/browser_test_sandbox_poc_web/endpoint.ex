@@ -1,6 +1,10 @@
 defmodule BrowserTestSandboxPocWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :browser_test_sandbox_poc
 
+  if Application.get_env(:browser_test_sandbox_poc, :sql_sandbox) do
+    plug Phoenix.Ecto.SQL.Sandbox
+  end
+
   socket "/socket", BrowserTestSandboxPocWeb.UserSocket,
     websocket: true,
     longpoll: false

@@ -12,7 +12,11 @@ config :browser_test_sandbox_poc, BrowserTestSandboxPoc.Repo,
 # you can enable the server option below.
 config :browser_test_sandbox_poc, BrowserTestSandboxPocWeb.Endpoint,
   http: [port: 4002],
-  server: false
+  server: true
+
+config :browser_test_sandbox_poc, :sql_sandbox, true
+
+config :wallaby, :otp_app, :browser_test_sandbox_poc
 
 # Print only warnings and errors during test
 config :logger, level: :warn
